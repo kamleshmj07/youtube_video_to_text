@@ -1,5 +1,7 @@
 from youtube_transcript_api import YouTubeTranscriptApi as yt
 
+FILES_FOLDER = r'C:\\Users\\kmanjrekar\\Documents\\Linedata\\Personal\\PythonProjects\\youtube_video_to_text\\files\\'
+
 
 def main():
     #-------------- Enter inputs
@@ -20,8 +22,22 @@ def main():
 
         dict_yt_text[id] = full_text
 
-    #-------------- Print or log the transcript
-    print(dict_yt_text)
+        #-------------- Print or log the transcript
+        write_text_to_file(FILES_FOLDER + id, full_text)
+
+    # print(dict_yt_text)
+
+
+def write_text_to_file(fullpath, str_txt):
+    '''writing text to file'''
+    # Opening a file 
+    file_1 = open(fullpath, 'w')
+    
+    # Writing a string to file 
+    file_1.write(str_txt)
+        
+    # Closing file 
+    file_1.close()
 
 
 
